@@ -10,7 +10,6 @@ export class JogadoresController {
     async criarAtualzarJogador(
         @Body() criarJogadordto:criarJogadordto){
             await this.JogadoresService.criarAtualizarJogador(criarJogadordto)
-            console.log("Aqui")
     }
    @Get()
    async consultarJogadores(
