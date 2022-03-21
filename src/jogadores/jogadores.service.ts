@@ -3,6 +3,7 @@ import { criarJogadordto } from './dtos/CriarJogador.dtos';
 import { Jogador } from './interfaces/jogador.interface';
 import { v4 as uuidv4 } from 'uuid'
 import { NotFoundError } from 'rxjs';
+import { join } from 'path';
 uuidv4(); 
 @Injectable()
 export class JogadoresService {
@@ -30,6 +31,11 @@ export class JogadoresService {
     return jogadorEmcontrado
        
    }
+    async deletarJogador(email):Promise<void>{
+        const jogadorEmcontrado=await this.Jogadores.find(jogador=>jogador.email=== email)
+        this.Jogadores=this.Jogadores.filter(jogador=>jogador.email!== jogadorEmcontrado.email)
+
+    }
     private criar(criarJogadordto:criarJogadordto):void{
         const{name,email,phonenumber}=criarJogadordto
     
