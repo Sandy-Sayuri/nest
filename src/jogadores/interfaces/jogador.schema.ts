@@ -1,4 +1,4 @@
-import* as mongose from  'mongoose'
+import * as mongose from  'mongoose'
 
 export const JogadorSchema = new mongose.Schema({
     phonenumber:{type:String,unique:true},
